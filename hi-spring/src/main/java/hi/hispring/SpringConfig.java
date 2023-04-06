@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 
 import org.springframework.context.annotation.Configuration;
 
+import hi.hispring.aop.TimeTraceAop;
 import hi.hispring.repository.JdbcMemberRepository;
 import hi.hispring.repository.JdbcTemplateMemberRepository;
 import hi.hispring.repository.JpaMemberRepository;
@@ -36,6 +37,11 @@ public class SpringConfig {
     public MemberService memberService() {
         return new MemberService(memberRepository);
         // return new MemberService(memberRepository());
+    }
+
+    @Bean
+    public TimeTraceAop timeTraceAop(){
+        return new TimeTraceAop();
     }
 
 //     @Bean
