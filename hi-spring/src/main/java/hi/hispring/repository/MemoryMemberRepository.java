@@ -6,11 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.springframework.stereotype.Repository;
-
 import hi.hispring.domain.Member;
 
-@Repository
 public class MemoryMemberRepository implements MemberRepository {
 
   // 실무에서는 동시성 고려를 위해, concurrencyHashMap 사용
