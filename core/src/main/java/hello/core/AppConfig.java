@@ -9,7 +9,7 @@ import hello.core.discount.RateDiscountPolicy;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
-import hello.core.member.MemoryMemberRepositoryImpl;
+import hello.core.member.MemoryMemberRepository;
 import hello.core.order.OrderService;
 import hello.core.order.OrderServiceImpl;
 
@@ -18,17 +18,20 @@ public class AppConfig {
     
     @Bean
     public MemberService memberService(){
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public OrderService orderService(){
+        System.out.println("AppConfig.orderService()");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
     @Bean
     public MemberRepository memberRepository(){
-        return new MemoryMemberRepositoryImpl();
+        System.out.println("AppConfig.memberRepository()");
+        return new MemoryMemberRepository();
     }
     
     @Bean

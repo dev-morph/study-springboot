@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import hello.core.AppConfig;
 import hello.core.member.MemberRepository;
-import hello.core.member.MemoryMemberRepositoryImpl;
+import hello.core.member.MemoryMemberRepository;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -49,11 +49,11 @@ public class ApplicationContextSameBeanFindTest {
     static class SameBeanConfig{
         @Bean
         public MemberRepository memberRepository1(){
-            return new MemoryMemberRepositoryImpl();
+            return new MemoryMemberRepository();
         }
         @Bean
         public MemberRepository memberRepository2(){
-            return new MemoryMemberRepositoryImpl();
+            return new MemoryMemberRepository();
         }
     }
 }
